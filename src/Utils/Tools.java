@@ -1,4 +1,4 @@
-package Day02;
+package Utils;
 
 import Utils.GenelWebDriver;
 import org.openqa.selenium.By;

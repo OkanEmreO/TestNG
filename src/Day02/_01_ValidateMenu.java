@@ -1,9 +1,9 @@
 package Day02;
 
 import Utils.GenelWebDriver;
+import Utils.Tools;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
