@@ -1,6 +1,8 @@
 package Utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -37,6 +39,22 @@ public class GenelWebDriver {
 
         driver.get("http://opencart.abstracta.us/index.php?route=account/login");
 
+        LogginTest();
+
+
+
+
+    }
+
+    void LogginTest(){
+        WebElement inputEmail=driver.findElement(By.id("input-email"));
+        inputEmail.sendKeys("ismet@gmail.com");
+
+        WebElement inputPassword = driver.findElement(By.id("input-password"));
+        inputPassword.sendKeys("55555555");
+
+        WebElement loginBtn = driver.findElement(By.cssSelector("input[value='Login']"));
+        loginBtn.click();
 
     }
 
