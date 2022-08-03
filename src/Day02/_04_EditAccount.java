@@ -25,9 +25,19 @@ public class _04_EditAccount extends GenelWebDriver {
 
     By conTinue = By.cssSelector("[type='submit']");
 
+    @Test
+    void EditAccount(){
+
+        editAccount("Ahmet","Demir");
+        Tools.Bekle(2);
+        editAccount("Okan","Emre");
+    }
+
+
+
 
     @Test
-    void editAccount(){
+    void editAccount(String ad,String soyad){
 
         WebElement editt = driver.findElement(editAccount);
 
@@ -37,46 +47,19 @@ public class _04_EditAccount extends GenelWebDriver {
 
         Name.clear();
 
-        Name.sendKeys("Fatih");
+        Name.sendKeys(ad);
 
         WebElement Surname = driver.findElement(surName);
 
         Surname.clear();
 
-        Surname.sendKeys("Terim");
+        Surname.sendKeys(soyad);
 
         WebElement contine = driver.findElement(conTinue);
 
         contine.click();
 
         Tools.succesMessageAccount();
-
-        WebElement ediT = driver.findElement(editAccount);
-
-        ediT.click();
-
-        WebElement name2 = driver.findElement(name);
-
-        name2.clear();
-
-        name2.sendKeys("Kamil");
-
-        WebElement surname2 = driver.findElement(surName);
-
-        surname2.clear();
-
-        surname2.sendKeys("Yali");
-
-        WebElement continue2 = driver.findElement(conTinue);
-
-        continue2.click();
-
-        Tools.succesMessageAccount();
-
-
-
-
-
 
 
     }
