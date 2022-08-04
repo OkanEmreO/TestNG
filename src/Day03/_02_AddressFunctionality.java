@@ -15,6 +15,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class _02_AddressFunctionality extends GenelWebDriver {
 
     By adress = By.linkText("Address Book");
@@ -72,12 +74,12 @@ public class _02_AddressFunctionality extends GenelWebDriver {
         Select menu2 = new Select(State);
         System.out.println("menu2.getOptions().size() 1 = " + menu2.getOptions().size());
 
-        wait.until(ExpectedConditions.numberOfElementsToBeLessThan(By.cssSelector("[id='input-zone']>option"),
-                menu2.getOptions().size())); // selectByIndex 2. kez calıstırılınca calısmıyor. O yüzden wait ile
+        wait.until(ExpectedConditions.stalenessOf(driver.findElement(By.cssSelector("[id='input-zone']>option"))));
+        // bu elemanın bayatlamış hali gidene kadar bekle
         // sistemi yakalamak gerekiyor
 
         menu2.selectByIndex(3);
-        // burası jata verebilir cünkü ülke kısmını random aldığımız'dan dolayı sehir kısmı boş gelebiliyor
+        // burası hata verebilir cünkü ülke kısmını random aldığımız'dan dolayı sehir kısmı boş gelebiliyor
         // yani ülkenin sehir sayısı mesela 2 ise sistem göremediği için hata veriyor diyebiliriz
 
         WebElement evetAnswer = driver.findElement(yesSelect);
@@ -89,6 +91,44 @@ public class _02_AddressFunctionality extends GenelWebDriver {
 
         Tools.succesMessageAddress();
 
+    }
+
+    @Test(dependsOnMethods = {"adressEkle"})
+    void editAddress(){
+
+        WebElement addressBook = driver.findElement(By.linkText("Address Book"));
+        addressBook.click();
+
+        List<WebElement> editAll = driver.findElements(By.linkText("Edit"));
+        WebElement sonEdit = editAll.get(editAll.size()-1); // sonuncu edit
+        System.out.println("editAll"+ editAll.size());
+        sonEdit.click();
+
+        WebElement isim = driver.findElement(nameArea);
+        isim.clear();
+        isim.sendKeys("Mehmet");
+
+        WebElement soyisim = driver.findElement(surName);
+        soyisim.clear();
+        soyisim.sendKeys("Yılmaz");
+
+        WebElement cnt = driver.findElement(conTinue);
+        cnt.click();
+
+        Tools.succesMessageAddress();
+    }
+
+    @Test(dependsOnMethods = {"editAddress"})
+    void deleteAddress(){
+
+        WebElement addressBook = driver.findElement(By.linkText("Address Book"));
+        addressBook.click();
+
+        List <WebElement> deleteAll = driver.findElements(By.linkText("Delete"));
+        WebElement sonDelete = deleteAll.get(deleteAll.size()-2);
+        sonDelete.click();
+
+        Tools.succesMessageAddress();
     }
 
 }

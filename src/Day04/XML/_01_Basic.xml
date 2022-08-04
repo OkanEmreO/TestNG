@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suit 1">
+    <test name ="Test 1"> <!-- Test 1'i kapsayan bölüm -->
+        <classes> <!-- Çalışacak sınıfların yazıldığı bölüm -->
+            <class name="Day04._01_Intro"></class>
+            <class name="Day04._02_Intro"></class>
+        </classes>
+    </test>
+</suite>

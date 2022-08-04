@@ -38,7 +38,9 @@ public class Tools {
 
         WebElement adress = driver.findElement(By.xpath("//*[@id='account-address']/div[1]"));
 
-        Assert.assertTrue(adress.getText().contains("Your address has been successfully added"));
+        Assert.assertTrue(adress.getText().contains("successfully"));
+
+        //*[@id="account-address"]/div[1]
     }
 
     public static void Bekle(int saniye)  {

@@ -8,7 +8,7 @@ public class _01_TestNG_Giris {
 
 
 
-    // Eğer test metodlarına soralama verilmezse, alfabetik sırasına göre çalışır.
+    // Eğer test metodlarına sıralama verilmezse, alfabetik sırasına göre çalışır.
 
     @Test(priority = 1) // priority sıralama yapar; Anlama annotation yani rotasyon sağlar.
     void webSitesiniAc(){
