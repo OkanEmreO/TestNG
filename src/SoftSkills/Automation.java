@@ -28,6 +28,8 @@ public class Automation {
 
     By logouTT = By.linkText("Logout");
 
+    By contniue= By.linkText("Continue");
+
 
     public static WebDriver driver;
 
@@ -90,17 +92,20 @@ public class Automation {
             Assert.assertTrue(emptyBox.getText().contains("Your shopping cart is empty!"));
         }
 
-        TimeUnit.SECONDS.sleep(2);
+        WebElement continuE = driver.findElement(contniue);
+        continuE.click();
 
         WebElement mylogOut = driver.findElement(myAccount);
 
         mylogOut.click();
 
-        WebElement mymenu = driver.findElement(By.cssSelector("#top-links > ul"));
+        TimeUnit.SECONDS.sleep(2);
 
-        Select menu = new Select(mymenu);
+       // WebElement mymenu = driver.findElement(By.cssSelector("ul[class='dropdown-menu dropdown-menu-right']"));
 
-        menu.selectByVisibleText("Logout");
+        WebElement logchose = driver.findElement(By.xpath("//ul/li[5]"));
+
+        logchose.click();
 
     }
 

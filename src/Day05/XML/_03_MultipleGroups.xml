@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suit 1">
+    <test name ="Test 1"> <!-- Test 1'i kapsayan bölüm -->
+
+        <!-- hangi gruplar çalıştırılacak -->
+        <groups>
+            <run>
+                <include name="SmokeTest"></include>
+            </run>
+        </groups>
+
+
+        <classes> <!-- Çalışacak sınıfların yazıldığı bölüm -->
+            <class name="Day05._01_Groups"></class>
+        </classes>
+
+
+    </test>
+
+    <test name ="Test 2"> <!-- Test 1'i kapsayan bölüm -->
+
+        <!-- hangi gruplar çalıştırılacak -->
+        <groups>
+            <run>
+                <include name="Regression"></include>
+            </run>
+        </groups>
+
+
+        <classes> <!-- Çalışacak sınıfların yazıldığı bölüm -->
+            <class name="Day05._01_Groups"></class>
+        </classes>
+
+
+    </test>
+</suite>
